@@ -1,6 +1,36 @@
 .testdiv{
-    border: 1px solid;
+    border: 3px solid;
     width: 1000px;
     max-height: 500px;
-    background: #336699;
+
+}
+
+#web_content{
+    width:90%;
+    margin-right: auto; /* 1 */
+    margin-left:  auto; /* 1 */
+    max-width: 960px; /* 2 */
+    padding-right: 10px; /* 3 */
+    padding-left:  10px; /* 3 */
+}
+
+#web_right_content{
+    width:30%;
+    float: right;
+    max-width:360px;
+    border:1px solid black;
+}
+
+#web_left_content{
+    width:70%;
+    float: left;
+    max-width:600px;
+    border:1px solid black;
+}
+
+#web_navbar{
+    margin-right: auto; /* 1 */
+    margin-left:  auto; /* 1 */
+    padding-right: 10px; /* 3 */
+    padding-left:  10px; /* 3 */
 }
