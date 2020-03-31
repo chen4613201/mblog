@@ -1,13 +1,10 @@
 {% block content %}
-<header id="header" class="main-header">
+<header id="web_header" class="main-header">
                     <!-- Logo -->
     <a href="javascript:;" class="logo">
-        <!-- 迷你模式下Logo的大小为50X50 -->
-        <span class="logo-mini">圈芽</span>
         <!-- 普通模式下Logo -->
-        <span class="logo-lg"><b>圈芽</b></span>
+        <span class="logo-lg"><b>个人博客</b></span>
     </a>
-    <div class="wrapper" style="height: auto;">
     <!-- 顶部通栏样式 -->
     <nav class="navbar navbar-static-top">
         <!--第一级菜单-->
@@ -18,8 +15,18 @@
             </a>
 
             <!--如果不想在顶部显示角标,则给ul加上disable-top-badge类即可-->
-            <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs" role="tablist" style="width: 690px;"><li class="dropdown pull-right hide tabdrop"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="glyphicon glyphicon-align-justify"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
-                        <li role="presentation" id="tab_1" class="active"><a href="#con_1" node-id="1" aria-controls="1" role="tab" data-toggle="tab"><i class="fa fa-dashboard"></i> <span>控制台</span> <span class="pull-right-container"> <small class="label pull-right bg-blue">hot</small></span></a></li></ul>
+            <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs" role="tablist" style="width: 690px;">
+                <li class="dropdown pull-right hide tabdrop"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="glyphicon glyphicon-align-justify"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
+                <li role="presentation" id="tab_1" class="active">
+                    <a href="#con_1" node-id="1" aria-controls="1" role="tab" data-toggle="tab">
+                        <i class="fa fa-dashboard"></i>
+                        <span>控制台</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-blue">hot</small>
+                        </span>
+                    </a>
+                </li>
+            </ul>
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
@@ -66,7 +73,7 @@
                     </li>
 
                     <!-- 多语言列表 -->
-                                    <li class="hidden-xs">
+                     <li class="hidden-xs">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language"></i></a>
                         <ul class="dropdown-menu">
                             <li class="active">
@@ -133,6 +140,5 @@
             </div>
         </div>
         </nav>
-    </div>
 </header>
 {% endblock %}
