@@ -1,0 +1,6 @@
+.testdiv{
+    border: 1px solid;
+    width: 1000px;
+    max-height: 500px;
+    background: #336699;
+}

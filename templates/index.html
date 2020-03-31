@@ -1,5 +1,4 @@
-{% extends "layout.html" %}
-{% block title %}Index{% endblock %}
+{% extends "base.html" %}
 {% block head %}
   {{ super() }}
   <style type="text/css">
@@ -7,7 +6,10 @@
   </style>
 {% endblock %}
 {% block content %}
-  <h1>Index</h1>
-  <p class="important">
-    Welcome on my awesome homepage.
+    <div class="wrapper testdiv" style="height: auto;">
+        {% include "header.html"%}
+        {% include "content.html"%}
+        {% include "footer.html"%}
+    </div>
+
 {% endblock %}
