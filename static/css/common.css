@@ -1,3 +1,9 @@
+a{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
 .testdiv{
     border: 3px solid;
     width: 1000px;
