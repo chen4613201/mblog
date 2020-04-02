@@ -2,22 +2,25 @@
     border: 3px solid;
     width: 1000px;
     max-height: 500px;
-
 }
 
-
-#web_right_content{
-    width:30%;
-    float: right;
-    max-width:360px;
-    border:1px solid black;
+div{
+    word-wrap: break-word;
+    display:block;
+}
+#web_content{
+    display: flex;
+    justify-content: center;
+    margin-top:5px;
 }
 
-#web_left_content{
-    width:70%;
-    float: left;
-    max-width:600px;
-    border:1px solid black;
+#right_content #left_content{
+    /**float: right;*/
+    word-wrap: break-word;
+    display : inline-block;
+    margin:5px;
+    padding:0;
+
 }
 
 #web_navbar{
@@ -25,4 +28,8 @@
     margin-left:  auto; /* 1 */
     padding-right: 10px; /* 3 */
     padding-left:  10px; /* 3 */
+}
+
+.list-group-item{
+    padding:inherit;
 }
