@@ -5,6 +5,10 @@
 
 }
 
+.container-fluid{
+    max-width: 960px;
+}
+
 #web_content{
     width:90%;
     margin-right: auto; /* 1 */
