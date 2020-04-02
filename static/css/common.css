@@ -3,6 +3,9 @@ a{
     background-color: transparent;
 }
 
+.nav-tabs .nav-link{
+    border: none;
+}
 
 .testdiv{
     border: 3px solid;
