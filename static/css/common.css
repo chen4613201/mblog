@@ -1,12 +1,3 @@
-a{
-    text-decoration: none;
-    background-color: transparent;
-}
-
-.nav-tabs .nav-link{
-    border: none;
-}
-
 .testdiv{
     border: 3px solid;
     width: 1000px;
@@ -14,18 +5,6 @@ a{
 
 }
 
-.container-fluid{
-    max-width: 960px;
-}
-
-#web_content{
-    width:90%;
-    margin-right: auto; /* 1 */
-    margin-left:  auto; /* 1 */
-    max-width: 960px; /* 2 */
-    padding-right: 10px; /* 3 */
-    padding-left:  10px; /* 3 */
-}
 
 #web_right_content{
     width:30%;

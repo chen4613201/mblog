@@ -33,3 +33,18 @@ function click_message_link(){
         }
     });
 }
+
+let elem = $("#navbarCollapse ul li")
+$("#navbarCollapse ul li").bind("click",function(e){
+   for(var i=0;i<elem.length;i++){
+       if(elem[i]==e.currentTarget){
+           $(elem[i]).addClass("active");
+       }
+       else{
+           $(elem[i]).removeClass("active");
+       }
+
+    }
+});
+
+$("#person_show").css("margin-top", "56px");
