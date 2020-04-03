@@ -5,7 +5,18 @@ app.config['DEBUG']=True
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    contents = {0:{"title":"nihao","content":"this is 0 neirong",
+                   "avatar":"/static/img/logo101_50.png",
+                   "username":"chenmingliang",
+                   "good":5555,
+                   "view":6666,
+                   "message":777},
+                1:{"title":"nihao","content":"this is 1 neirong"},
+                2:{"title":"nihao","content":"this is 2 neirong"},
+                3:{"title":"nihao","content":"this is 3 neirong"},
+                4:{"title":"nihao","content":"this is 4 neirong"},
+                5:{"title":"nihao","content":"this is 5 neirong"},}
+    return render_template("index.html",contents=contents)
 
 
 @app.route('/Sentiment')
