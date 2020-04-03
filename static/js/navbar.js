@@ -46,5 +46,3 @@ $("#navbarCollapse ul li").bind("click",function(e){
 
     }
 });
-
-$("#person_show").css("margin-top", "61px");

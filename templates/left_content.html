@@ -1,17 +1,20 @@
 {% block content %}
 <div id="left_content" class="col-8">
     <div class="list-group">
-        <a href="#" class="list-group-item active">
+        <a href="#" class="list-group-item">
             <h4 class="list-group-item-heading">
-                入门网站包
+                短视频的彷徨与退让：积蓄力量，正待春暖花开
             </h4>
+            <p class="list-group-item-text">您将通过网页进行免费域名注册。</p>
         </a>
         <a href="#" class="list-group-item">
             <h4 class="list-group-item-heading">
-                免费域名注册
+                经历的这场彷徨与退让或许更像是在积蓄继续前行的能量。
             </h4>
+            <span class="btn btn-default">收缩</span>
+            <div class="btn btn-default">展开</div>
             <p class="list-group-item-text">
-                您将通过网页进行免费域名注册。
+            您将通过网页进行免费域名注册。
             </p>
         </a>
         <a href="#" class="list-group-item">
@@ -23,24 +26,8 @@
             </p>
         </a>
     </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">
-                商务网站包
-            </h4>
-        </a>
-        <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                免费域名注册
-            </h4>
-            <p class="list-group-item-text">
-                您将通过网页进行免费域名注册。
-            </p>
-        </a>
-        <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">24*7 支持</h4>
-            <p class="list-group-item-text">我们提供 24*7 支持。</p>
-        </a>
-    </div>
 </div>
 {% endblock %}
+<script>
+    $("left_content .list-group-item").removeAttribute("background");
+</script>
