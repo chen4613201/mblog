@@ -1,6 +1,11 @@
 *{
     margin: 0;
     padding:0;
+    font-family: PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Verdana,Roboto,Noto,Helvetica Neue,sans-serif !important;
+}
+
+body{
+    background: #f3f3f3;
 }
 
 div{
@@ -13,4 +18,7 @@ div{
 a:hover{
     text-decoration: none;
     color:red;
+}
+a{
+    color:black;
 }
