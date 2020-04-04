@@ -17,10 +17,10 @@ function click_summary_link(){
 }
 
 function click_aboutus_link(){
-    $('#web_left_content').load("/AboutUs",null,function(response,status){
+    $('#left_content').load("/AboutUs",null,function(response,status){
         if(status!="success"){
             console.log(status);
-            $('#web_right_content').html(status);
+            $('#left_content').html(status);
         }
     });
 }
@@ -34,5 +34,13 @@ function click_message_link(){
     });
 }
 
+function load_article(article_id){
+    $('#left_content').load("/article/"+article_id,null,function(response,status){
+        if(status!="success"){
+            console.log(status);
+            $('#left_content').html(status);
+        }
+    });
+}
 
 

@@ -1,0 +1,20 @@
+<div id="web_article" style="background:#fff;">
+    <div style="text-align: center;font-size: 24px;font-weight: bold;padding-top: 20px; padding-bottom: 20px;">
+        {{ contents.title }}
+    </div>
+    <div>
+        <span>作者:{{ contents.username }}</span>
+        <span>点赞:{{ contents.good }}</span>
+        <span>阅读:{{ contents.view }}</span>
+        <span>留言:{{ contents.message }}</span>
+    </div>
+    <div class="interval"></div>
+    <div style="text-indent: 25px;min-height: 500px">
+        <p>{{ contents.content }}</p>
+    </div>
+    <div class="interval"></div>
+    <div style="display: block">
+        <a href="" style="display: block">上一篇文件</a>
+        <a href="" style="display: block">下一篇文件</a>
+    </div>
+</div>
