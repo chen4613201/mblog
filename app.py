@@ -1,9 +1,25 @@
+# -*- coding: utf-8 -*-
 from flask import Flask,render_template
-
+from flask_sqlalchemy import SQLAlchemy
+import pymysql
 app = Flask(__name__)
 app.config['DEBUG']=True
+db=SQLAlchemy(app)
 
-contents = {'0': {"title": "今日重点", "content": "this is 0 neirong",
+
+class Config(object):
+    """配置参数"""
+    #sqlalchemy的配置参数
+    SQLALCHEMY_DATABASE_URI="mysql://root:Abc1234%@127.0.0.1:3306/mblog"
+    #设置sqlalchemy自动跟踪数据库
+    SQLALCHEMY_TRACK_MODIFICATIONS=True
+    SQLALCHEMY_COMMIT_ON_TEARDOWN=True
+    SQLALCHEMY_COMMIT_TEARDOWN=True
+
+
+app.config.from_object(Config)
+
+contents = {'0': {"title": "23", "content": "this is 0 neirong",
                 "avatar": "/static/img/logo101_50.png",
                 "username": "chenmingliang",
                 "good": 5555,
@@ -40,3 +56,5 @@ def message():
 
 if __name__ == '__main__':
     app.run()
+    db.drop_all()
+    db.create_all()
