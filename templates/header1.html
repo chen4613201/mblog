@@ -1,0 +1,77 @@
+{% block content %}
+<div class="w_100 b_1_s marg-top--5">
+    <ul class="disp-flex alig-item-cent" style="margin-bottom: 0">
+        <li class="marg-left-10 marg-right-auto">
+            <img src="/static/img/logo101_50.png">
+        </li>
+        <li class="marg-right-10 marg-left-auto ">
+            <div class="input-search">
+                <input type="text">
+                <a href="#">搜索</a>
+            </div>
+            <div class="login-register">
+                <a href="#">登陆/注册</a>
+            </div>
+        </li>
+    </ul>
+    <!--<div class="f_l">
+        <img src="/static/img/logo101_50.png">
+    </div>
+    <div class="f_r">
+        <div class="input-search">
+            <input type="text">
+            <a href="#">搜索</a>
+        </div>
+        <div class="login-register">
+            <a href="#">登陆/注册</a>
+        </div>
+    </div>
+    <div class="clear"></div>-->
+</div>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+
+.w_100{width:100%;}
+.b_1_s{border:1px solid;}
+.f_l{ float:left;}
+.f_r{ float:right}
+.clear{ clear:both}
+li,.input-search,.login-register {
+    display: inline-block;
+}
+.marg-right-10{
+    margin-right: 10px;
+}
+.marg-left-10{
+    margin-left: 10px;
+}
+.marg-top--5{
+    margin-top: -5px;
+}
+.marg-left-auto{
+    margin-left: auto;
+}
+.marg-right-auto{
+    margin-right: auto;
+}
+.disp-flex{
+    display: flex;
+}
+.alig-item-cent{
+    align-items: center;
+}
+.interval{
+    float: left;
+    width: 1px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-top: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+</style>
+{% endblock %}
