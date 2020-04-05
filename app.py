@@ -1,60 +1,55 @@
 # -*- coding: utf-8 -*-
-from flask import Flask,render_template
-from flask_sqlalchemy import SQLAlchemy
-import pymysql
+from flask import Flask,render_template,request
+from dbs import *
+from sqlalchemy.sql import *
+
 app = Flask(__name__)
 app.config['DEBUG']=True
-db=SQLAlchemy(app)
 
-
-class Config(object):
-    """配置参数"""
-    #sqlalchemy的配置参数
-    SQLALCHEMY_DATABASE_URI="mysql://root:Abc1234%@127.0.0.1:3306/mblog"
-    #设置sqlalchemy自动跟踪数据库
-    SQLALCHEMY_TRACK_MODIFICATIONS=True
-    SQLALCHEMY_COMMIT_ON_TEARDOWN=True
-    SQLALCHEMY_COMMIT_TEARDOWN=True
-
-
-app.config.from_object(Config)
-
-contents = {'0': {"title": "23", "content": "this is 0 neirong",
-                "avatar": "/static/img/logo101_50.png",
-                "username": "chenmingliang",
-                "good": 5555,
-                "view": 6666,
-                "message": 777},
-            '1': {"title": "今日头条", "content": "玖芯科技：p 标签是默认是自动换行的，因此设置好宽度之后，能够较好的实现效果，但是最近的项目中发现，使用 ajax 加载数据之后，p 标签内的内容没有换行，导致布局错乱，于是尝试着使用换行样式，虽然解决了问题，但是并没有发现本质原因，本质在于，我当时获取的数据是一长串的数字，浏览器应该是对数字和英文单词处理方式相近，不会截断。 "},
-            }
 
 @app.route('/')
 def index():
-    return render_template("index.html",contents=contents)
+    s = select([Article])
+    result=DB_session.execute(s)
+    result_list=[]
+    for row in result:
+        result_tuple={'articleid':row['articleid'],'title':row['title'],'content':row['content']}
+        result_list.append(result_tuple)
+    return render_template("index.html",contents=result_list)
+
 
 @app.route('/article/<article_id>')
 def article(article_id):
-    return render_template("article.html",contents=contents[article_id])
+    q = select([Article]).where(Article.c.articleid==article_id)
+    result = DB_session.execute(q)
+    content={}
+    for row in result:
+        content = {"title": row['title'],'content':row['content'],'thumbs':row['thumbs'],'read':row['read'],'message':row['message']}
+        print(row)
 
-@app.route('/Sentiment')
-def Sentiment():
-    return render_template("Sentiment.html")
-
-
-@app.route('/Summary')
-def Summary():
-    return render_template("Summary.html")
-
-@app.route('/AboutUs')
-def AboutUs():
-    return render_template("AboutUs.html")
+    return render_template("article.html",contents=content)
 
 
-@app.route('/message')
-def message():
-    return render_template("message.html")
+@app.route('/edit_article')
+def edit_article():
+    return render_template("edit_article.html")
+
+
+@app.route('/submit_article', methods=['POST'])
+def submit_article():
+    try:
+        print(request.form["Article_Title"])
+        print(request.form["Article_Content"])
+        Article_Title = request.form['Article_Title']
+        Article_Content = request.form['Article_Content']
+        i=Article.insert().values(title=Article_Title, content=Article_Content)
+        DB_session.execute(i)
+        DB_session.close()
+        return "文章发表成功"
+    except Exception as e:
+        DB_session.close()
+        return "文章发表异常："+str(e)
+
 
 if __name__ == '__main__':
     app.run()
-    db.drop_all()
-    db.create_all()

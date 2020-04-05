@@ -4,39 +4,10 @@
         {% for item in contents %}
         <li style="height: 135px;width:100%;position: relative;margin-top:5px">
             <div style="margin-top: 10px;margin-left: 10px;margin-right: 10px;overflow: hidden">
-                <a id="article_title" href="#" style="font-size: 18px;font-weight: bold" onclick="load_article({{ item }})">
-                    {{ contents[item].title }}
+                <a href="javascript:void(0);" id="article_title" href="javascript:void(0);" style="font-size: 18px;font-weight: bold" onclick="load_article({{ item.articleid }})">
+                    {{ item.title }}
                 </a>
-                <p class="" style="color: #a8a8a8;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ contents[item].content }}</p>
-            </div>
-            <div style="position: absolute;bottom:10px;right: 10px;font-size: 14px;">
-                <ul class="list-inline">
-                    <li>
-                        <a href={{ contents[item].title }} >
-                            <img src={{ contents[item].avatar }} class="img-circle">
-                        </a>
-                    </li>
-                    <li>
-                        <a href={{ contents[item].username }} >
-                            {{ contents[item].username }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ contents[item].username }}">
-                            {{ contents[item].view }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ contents[item].username }}">
-                            {{ contents[item].view }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ contents[item].username }}">
-                            {{ contents[item].view }}
-                        </a>
-                    </li>
-                </ul>
+                <p class="" style="color: #a8a8a8;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ item.content }}</p>
             </div>
         </li>
         <div class="interval"></div>
@@ -48,6 +19,10 @@
     position: relative;
     padding:5px;
 }
+span:hover{
+    color:red;
+}
+
 .interval{
     width: auto;
     height: 1px;

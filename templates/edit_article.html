@@ -1,0 +1,26 @@
+<div>
+    <form id="ArticleEditForm" action="/submit_article" method="post">
+        <div>
+            <span>标题:</span>
+            <input id="Article_Title" name="Article_Title" type="text">
+        </div>
+        <div>
+            <span>编辑内容:</span>
+            <!-- 加载编辑器的容器 -->
+            <script id="Ueditor_Container" name="Article_Content" type="text/plain">
+                     这里写你的初始化内容
+             </script>
+        </div>
+        <div>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+</div>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/static/UEditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/static/UEditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('Ueditor_Container');
+    </script>

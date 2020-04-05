@@ -43,4 +43,6 @@ function load_article(article_id){
     });
 }
 
+$('.login-register').click(function(){$(".theme-popover.login").fadeIn();});
+
 
