@@ -14,18 +14,16 @@ Article=Table( 'Article',metadata,
     Column('message', Integer,default=0),
     Column('create_time',TIMESTAMP,server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
 )
+Users=Table( 'Users',metadata,
+    Column('userid', Integer,primary_key=True),
+    Column('username', VARCHAR(10),nullable=False),
+    Column('password', VARCHAR(10),nullable=False),
+    Column('email', VARCHAR(30),default=None),
+    Column('create_time',TIMESTAMP,server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+)
+
+
+
 metadata.create_all(engine)
 DB_session = engine.connect()
 
-
-def delete_article(article_id):
-    del_obj = Article.delete().where(Article.columns['articleid'] == article_id)
-    print(del_obj)
-    result = DB_session.execute(del_obj)
-    print(result)
-    DB_session.close()
-
-
-
-if __name__ == '__main__':
-    delete_article(1)

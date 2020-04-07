@@ -1,37 +1,24 @@
 {% block content %}
-<div id="left_content" class="container-fluid col-8">
-    <ul style="background:#fff;">
-        {% for item in contents %}
-        <li style="height: 135px;width:100%;position: relative;margin-top:5px">
-            <div style="margin-top: 10px;margin-left: 10px;margin-right: 10px;overflow: hidden">
-                <a href="javascript:void(0);" id="article_title" href="javascript:void(0);" style="font-size: 18px;font-weight: bold" onclick="load_article({{ item.articleid }})">
+<div id="left_content" class="col-md-8 column">
+    <div class="list-group">
+    {% for item in contents %}
+            <div class="list-group-item border-0">
+                <h4 class="list-group-item-heading">
+                    <a href="{{url_for('article',article_id=item.articleid)}}" id="article_title" style="font-size: 18px;font-weight: bold">
                     {{ item.title }}
-                </a>
-                <p class="" style="color: #a8a8a8;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ item.content }}</p>
-            </div>
-        </li>
-        <div class="interval"></div>
-        {% endfor %}
-    </ul>
-</div>
-<style>
-#left_content ul{
-    position: relative;
-    padding:5px;
-}
-span:hover{
-    color:red;
-}
+                    </a>
+                </h4>
+                <p class="p_content" class="list-group-item-text border-0 text-break">
+                    {{ item.content }}
+                </p>
 
-.interval{
-    width: auto;
-    height: 1px;
-    border-radius: 50%;
-    background-color: #f7f7f7;
-    margin-top: 6px;
-    margin-left: 8px;
-    margin-right: 8px;
-}
-</style>
+            </div>
+            <div class="list-group-item border-0">
+                 <span class="badge">14</span> Help
+            </div>
+
+    {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

@@ -1,15 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
   {{ super() }}
-  <style type="text/css">
-    .important { color: #336699; }
-  </style>
 {% endblock %}
 {% block content %}
     {% include "header.html" %}
-
-    {% include "person_show.html" %}
     {% include "content.html" %}
-    {% include "login.html" %}
     {% include "footer.html" %}
 {% endblock %}
