@@ -57,6 +57,7 @@ def submit_article():
         #print(request.form['myeditor'])
         Article_Title = request.form['name']
         Article_Content = util.htmlEncodeByRegExp(request.form['myeditor'])
+        #Article_Content = request.form['myeditor']
         i=Article.insert().values(title=Article_Title, content=Article_Content)
         DB_session.execute(i)
         return "文章发表成功"
