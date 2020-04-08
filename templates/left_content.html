@@ -5,16 +5,16 @@
             <div class="list-group-item border-0">
                 <h4 class="list-group-item-heading">
                     <a href="{{url_for('article',article_id=item.articleid)}}" id="article_title" style="font-size: 18px;font-weight: bold">
-                    {{ item.title }}
+                    {{ item.title|safe }}
                     </a>
                 </h4>
                 <p class="p_content" class="list-group-item-text border-0 text-break">
-                    {{ item.content }}
+                    {{ item.content| safe }}
                 </p>
 
             </div>
             <div class="list-group-item border-0 ">
-                <div class="border-bottom">
+                <div class="border-bottom text-right">
                  <span class="badge ">14</span> Help
                 </div>
             </div>

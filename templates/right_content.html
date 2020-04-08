@@ -5,7 +5,7 @@
             {% for item in contents[1] %}
             <div class="list-group-item">
                 <a href="{{url_for('article',article_id=item.articleid)}}">
-                    {{ item.title }}
+                    {{ item.title | safe}}
                     <span class="badge badge-pill badge-primary">{{item.read}}</span>
                 </a>
             </div>
@@ -16,7 +16,7 @@
             {% for item in contents[0] %}
             <div class="list-group-item">
                 <a href="{{url_for('article',article_id=item.articleid)}}">
-                    {{ item.title }}
+                    {{ item.title |safe}}
                     <span class="badge badge-pill badge-primary">{{item.read}}</span>
                 </a>
             </div>
