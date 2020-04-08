@@ -38,11 +38,11 @@ def aboutus():
 def article(article_id):
     q = select([Article]).where(Article.c.articleid==article_id)
     result = DB_session.execute(q)
-    content={}
+    contents=[]
     for row in result:
-        content = {"id":row['articleid'],"title": row['title'],'content':row['content'],'thumbs':row['thumbs'],'read':row['read'],'message':row['message']}
+        contents.append(row)
         print(row)
-    return render_template("article.html",contents=content)
+    return render_template("article.html",contents=contents)
 
 
 @app.route('/edit_article')

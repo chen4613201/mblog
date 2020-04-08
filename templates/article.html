@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    {% include "header.html" %}
-    {% include "jumbotron.html" %}
+{% include "header.html" %}
+{% include "jumbotron.html" %}
 
 
 <div class="span12">
     <h3 class="text-center">
-        {{ contents.title }}
+        {{ contents[0].title }}
     </h3>
+    <span></span>
+    <span></span>
+    <span>创建时间:</span>
+    <span>{{ contents[0].create_time }}</span>
     <p>
-        <p>{{ contents.content }}</p>
+        <p>{{ contents[0].content }}</p>
     </p>
 </div>
 {% endblock %}
