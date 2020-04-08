@@ -1,22 +1,15 @@
 {% extends "base.html" %}
-{% include "header.html" %}
 {% block content %}
-<div id="web_article">
-    <div>
+    {% include "header.html" %}
+    {% include "jumbotron.html" %}
+
+
+<div class="span12">
+    <h3 class="text-center">
         {{ contents.title }}
-    </div>
-    <div>
-        <span>作者:{#{{ contents.username }}#}</span>
-        <span>点赞:{{ contents.thumbs }}</span>
-        <span>阅读:{{ contents.read }}</span>
-        <span>留言:{{ contents.message }}</span>
-    </div>
-    <div>
+    </h3>
+    <p>
         <p>{{ contents.content }}</p>
-    </div>
-    <div>
-        <a href="" style="display: block">上一篇文件</a>
-        <a href="" style="display: block">下一篇文件</a>
-    </div>
+    </p>
 </div>
 {% endblock %}

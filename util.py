@@ -9,6 +9,8 @@ def htmlEncodeByRegExp(str):
     str = str.replace('</p>', '')
     str = str.replace('<p>', '')
     str = str.replace('&amp;', '&')
+    str = str.replace('<pre>', '')
+    str = str.replace('</pre>', '')
     return str
 
 jjj = htmlEncodeByRegExp("<p>afdasfda&nbsp; &nbsp; &nbsp;&nbsp;</p>")

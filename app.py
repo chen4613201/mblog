@@ -10,14 +10,29 @@ app.config['DEBUG']=True
 
 @app.route('/')
 def index():
-    s = select([Article])
-    result=DB_session.execute(s)
-    result_list=[]
-    for row in result:
-        result_tuple={'articleid':row['articleid'],'title':row['title'],'content':row['content']}
-        result_list.append(result_tuple)
-    return render_template("index.html",contents=result_list)
+    new_article = select([Article]).order_by(Article.c.create_time.desc()).limit(10)
+    hot_article = select([Article]).order_by(Article.c.read.desc()).limit(10)
+    new_article_result=DB_session.execute(new_article)
+    hot_article_result=DB_session.execute(hot_article)
+    result_set = []
+    new_article_result_list = []
+    hot_article_result_list = []
+    for row in new_article_result:
+        #result_tuple={'articleid':row['articleid'],'title':row['title'],'content':row['content']}
+        new_article_result_list.append(row)
 
+    for row in hot_article_result:
+        print(row)
+        #result_tuple={'articleid':row['articleid'],'title':row['title'],'content':row['content']}
+        hot_article_result_list.append(row)
+
+    result_set.append(new_article_result_list)
+    result_set.append(hot_article_result_list)
+    return render_template("index.html",contents=result_set)
+
+@app.route('/aboutus')
+def aboutus():
+    return render_template("aboutus.html")
 
 @app.route('/article/<article_id>')
 def article(article_id):
@@ -27,7 +42,6 @@ def article(article_id):
     for row in result:
         content = {"id":row['articleid'],"title": row['title'],'content':row['content'],'thumbs':row['thumbs'],'read':row['read'],'message':row['message']}
         print(row)
-
     return render_template("article.html",contents=content)
 
 
@@ -39,8 +53,8 @@ def edit_article():
 @app.route('/submit_article', methods=['POST'])
 def submit_article():
     try:
-        print(request.form['name'])
-        print(request.form['myeditor'])
+        #print(request.form['name'])
+        #print(request.form['myeditor'])
         Article_Title = request.form['name']
         Article_Content = util.htmlEncodeByRegExp(request.form['myeditor'])
         i=Article.insert().values(title=Article_Title, content=Article_Content)

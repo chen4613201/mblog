@@ -3,6 +3,7 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
+{% include "header.html" %}
 <form role="form" action="/submit_article" method="post">
     <div class="form-group" style="display: flex;margin-top:1rem">
         <label for="name" class="col-2 form-inline" style="margin-bottom: unset">文章标题:</label>
