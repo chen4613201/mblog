@@ -3,7 +3,7 @@ from sqlalchemy.sql import *
 from sqlalchemy import *
 import time
 
-engine = create_engine('mysql+mysqlconnector://root:Abc1234%@127.0.0.1:3306/mblog', echo=True)
+engine = create_engine('mysql+mysqlconnector://root:Abc1234%@94.191.110.35:3306/mblog', echo=True)
 metadata = MetaData(engine)
 Article=Table( 'Article',metadata,
     Column('articleid', Integer,primary_key=True),
