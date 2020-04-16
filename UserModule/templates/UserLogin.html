@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {{ loginform.csrf_token }}
+
+        {{ loginform.username.label }}
+        <p>{{ loginform.username }}</p>
+        {% for msg in  loginform.username.errors %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+
+        {{ loginform.password.label }}
+        <p>{{ loginform.password }}</p>
+        {% for msg in  loginform.password.errors %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+        <p>{{ loginform.rememberme }}{{ loginform.rememberme.label }}</p>
+        {{ loginform.submit }}
+    </form>
+</body>
+</html>

@@ -3,9 +3,12 @@ from flask import Flask,render_template,request,url_for
 from dbs import *
 from sqlalchemy.sql import *
 from forms import *
+from UserModule import User_BP
 
 app = Flask(__name__)
 app.config['DEBUG']=True
+app.config['SECRET_KEY'] = 'DEV'
+app.register_blueprint(User_BP, url_prefix="/User")
 
 
 @app.route('/')
@@ -93,4 +96,5 @@ with app.test_request_context():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=80,debug=True)
+    print(app.url_map)
+    app.run(host='127.0.0.1',port=5000,debug=True)
