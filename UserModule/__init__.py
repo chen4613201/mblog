@@ -1,4 +1,4 @@
-from flask import Blueprint,request,render_template,redirect,url_for,session,Response,jsonify
+from flask import Blueprint,request,render_template,redirect,url_for,session,Response,jsonify,flash
 from .forms import LoginForm,RegisterForm
 from dbs import C_T_User,C_T_Article
 from app import db
@@ -18,6 +18,7 @@ def login():
             if userobj != None and userobj.username==username and userobj.password==password:
                 session["username"]=username
                 session["password"]=password
+                flash('You were successfully logged in')
             return redirect(url_for("index"),code=302)
 
     return render_template("UserLogin.html", loginform=loginform)
@@ -33,6 +34,7 @@ def register():
             userobj = C_T_User(username=username,password=password)
             db.session.add(userobj)
             db.session.commit()
+            flash('Successfully registered, about to jump to the home page')
             return redirect(url_for("User_BP.login"))
 
     return render_template("UserRegister.html", registerForm=registerForm)
