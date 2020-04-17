@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form method="post">
+{% extends "bootstrap/base.html" %}
+{% import "macro.html" as macrofunc %}
+{% block content %}
+<div class="row justify-content-center" style="min-height: 600px">
+    <form method="post" novalidate class="col-4 align-self-center border p-4">
         {{ registerForm.csrf_token }}
-        {{ registerForm.username.label }}
-        <p>{{ registerForm.username }}</p>
-        {% for msg in  registerForm.username.errors %}
-            <p>{{ msg }}</p>
-        {% endfor %}
-        {{ registerForm.password.label }}
-        <p>{{ registerForm.password }}</p>
-        {% for msg in  registerForm.password.errors %}
-            <p>{{ msg }}</p>
-        {% endfor %}
-         {{ registerForm.password2.label }}
-        <p>{{ registerForm.password2 }}</p>
-        {% for msg in  registerForm.password2.errors %}
-            <p>{{ msg }}</p>
-        {% endfor %}
-        {{ registerForm.submit }}
+        {{ macrofunc.form_title(registerForm.registerlabel.label) }}
+        {{ macrofunc.form_group(registerForm.username) }}
+        {{ macrofunc.form_group(registerForm.password) }}
+        {{ macrofunc.form_group(registerForm.password2) }}
+        {{ macrofunc.form_submit_btn(registerForm.submit) }}
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

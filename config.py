@@ -1,0 +1,6 @@
+import pymysql
+SECRET_KEY="dev"
+DEBUG=True
+SQLALCHEMY_DATABASE_URI="mysql+pymysql://root:Abc1234%@94.191.110.35:3306/mblog"
+
+SQLALCHEMY_TRACK_MODIFICATIONS=True

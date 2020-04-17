@@ -1,0 +1,19 @@
+{% macro form_group(param) %}
+    <div class="form-group">
+        {{ param.label }}
+        {{ param(class_="form-control") }}
+        {% for msg in  param.errors %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro form_title(param) %}
+    <div class="d-flex justify-content-center">
+        {{param}}
+    </div>
+{% endmacro %}
+
+{% macro form_submit_btn(param) %}
+    {{param(class_="form-control btn btn-primary")}}
+{% endmacro %}

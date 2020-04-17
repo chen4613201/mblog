@@ -4,14 +4,14 @@
 {% endblock %}
 {% block content %}
 {% include "header.html" %}
-<form role="form" action="/submit_article" method="post">
+<form role="form" method="post">
     <div class="form-group" style="display: flex;margin-top:1rem">
         <label for="name" class="col-2 form-inline" style="margin-bottom: unset">文章标题:</label>
-        <input type="text" class="form-control col-8 form-inline" name="name" placeholder="请输入文章标题" required oninvalid="setCustomValidity('请填写标题')">
+        <input type="text" class="form-control col-8 form-inline" name="article_title" placeholder="请输入文章标题" required oninvalid="setCustomValidity('请填写标题')">
         <button type="submit" class="col-2 btn btn-danger">提交</button>
     </div>
 
-    <textarea cols="80" id="myeditor" name="myeditor" rows="20"></textarea>
+    <textarea cols="80" id="myeditor" name="article_content" rows="20"></textarea>
             <script src="/static/ckeditor/ckeditor.js"></script>
             <script>
                 CKEDITOR.replace( 'myeditor' );

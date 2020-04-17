@@ -6,19 +6,17 @@
 
 <div class="span12">
     <h3 class="text-center">
-        {{ contents.artircle_title }}
+        {{ contents[0].title }}
     </h3>
     <span></span>
     <span></span>
     <span>创建时间:</span>
-    <span>{{ contents.create_time }}</span>
-    <span>阅读数:</span>
-    <span>{{ contents.read_num }}</span>
+    <span>{{ contents[0].create_time }}</span>
     <p class="badge">
-        <p>{{ contents.article_content | safe}}</p>
+        <p>{{ contents[0].content | safe}}</p>
     </p>
 
-    <a  class="btn btn-primary" href="">
+    <a  class="btn btn-primary" href="{{url_for('delete_article',article_id=contents[0].articleid)}}">
         删除文章
     </a>
 </div>
