@@ -5,11 +5,6 @@ from app import db
 UserModule = Blueprint("User_BP",__name__,static_folder="static",template_folder="templates")
 
 
-@UserModule.route("/firstpage")
-def firstpage():
-    return render_template("firstPage.html")
-
-
 @UserModule.route("/login", methods=["POST","GET"])
 def login():
     loginform = LoginForm()
