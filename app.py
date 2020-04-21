@@ -8,13 +8,9 @@ app.config.from_pyfile("config.py")
 
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
-
-
-#db.drop_all()
-#db.create_all()
+from dbs import C_T_User,C_T_Article
 from UserModule import UserModule
 from ArticleModule import ArticleModule
-from dbs import C_T_User,C_T_Article
 app.register_blueprint(UserModule, url_prefix="/user")
 app.register_blueprint(ArticleModule, url_prefix="/article")
 
