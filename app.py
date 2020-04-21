@@ -8,6 +8,7 @@ app.config.from_pyfile("config.py")
 
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
+db.init_app(app)
 from dbs import C_T_User,C_T_Article
 from UserModule import UserModule
 from ArticleModule import ArticleModule
