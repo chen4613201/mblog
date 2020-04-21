@@ -1,7 +1,8 @@
 from . import ArticleModule
 from flask import render_template,request,session,url_for,redirect
+from dbext import db
 from dbs import C_T_Article,C_T_User
-from app import db
+
 
 
 @ArticleModule.route("/read_article/<articleid>")
