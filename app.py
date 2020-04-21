@@ -9,14 +9,14 @@ app.config.from_pyfile("config.py")
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
-from dbs import C_T_User,C_T_Article
+
 #db.drop_all()
 #db.create_all()
 from UserModule import UserModule
 from ArticleModule import ArticleModule
 app.register_blueprint(UserModule, url_prefix="/user")
 app.register_blueprint(ArticleModule, url_prefix="/article")
-
+from dbs import C_T_User,C_T_Article
 
 @app.route('/')
 def index():
