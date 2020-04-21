@@ -14,9 +14,10 @@ db = SQLAlchemy(app)
 #db.create_all()
 from UserModule import UserModule
 from ArticleModule import ArticleModule
+from dbs import C_T_User,C_T_Article
 app.register_blueprint(UserModule, url_prefix="/user")
 app.register_blueprint(ArticleModule, url_prefix="/article")
-from dbs import C_T_User,C_T_Article
+
 
 @app.route('/')
 def index():
