@@ -17,3 +17,10 @@
 {% macro form_submit_btn(param) %}
     {{param(class_="form-control btn btn-primary")}}
 {% endmacro %}
+
+
+{% macro Thumbs_up(param=None) %}
+    <a href={{ url_for("Article_BP.thumbs_up",articleid=param.id) }}>
+      <span class="glyphicon glyphicon-eye-open">点赞{{ 0 }}</span>
+    </a>
+{% endmacro %}

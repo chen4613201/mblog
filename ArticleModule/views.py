@@ -25,3 +25,15 @@ def edit_article():
         return redirect(url_for("index"))
 
     return render_template("edit_article.html")
+
+
+@ArticleModule.route("/thumbs_up",methods=["GET"])
+def thumbs_up():
+    articleid = request.args.get("articleid")
+    print(articleid)
+    a_obj= C_T_Article.query.filter(C_T_Article.id==articleid).first()
+    a_obj.thumd_up = a_obj.thumd_up + 1
+    db.session.commit()
+    return "0"
+
+

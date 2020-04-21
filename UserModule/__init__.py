@@ -24,7 +24,7 @@ def login():
     return render_template("UserLogin.html", loginform=loginform)
 
 
-@UserModule.route("/register", methods=["POST","GET"])
+#@UserModule.route("/register", methods=["POST","GET"])
 def register():
     registerForm = RegisterForm()
     if request.method == "POST":

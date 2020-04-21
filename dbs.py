@@ -24,6 +24,7 @@ class C_T_Article(db.Model):
     user_id = db.Column(db.Integer)
     create_time = db.Column(db.TIMESTAMP,default=time.localtime(time.time()))
     read_num = db.Column(db.Integer,default=0)
+    thumd_up = db.Column(db.Integer, default=0)
     #author = db.relationship('C_T_User', backref=db.backref('m_article'))
 
     def __init__(self,artircle_title,article_content,user_id):
