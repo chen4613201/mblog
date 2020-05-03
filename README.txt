@@ -1,2 +1,1 @@
-mblog
-sdsd
+clamscan --recursive=yes -f --follow-dir-symlinks=0 --follow-file-symlinks=0 /home --exclude-dir=/home/ancamtec/mail/ancam-tech.com/ --exclude-dir=*back* --infected> scan.log &

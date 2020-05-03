@@ -4,7 +4,6 @@ from dbext import db
 from dbs import C_T_Article,C_T_User
 
 
-
 @ArticleModule.route("/read_article/<articleid>")
 def read_article(articleid):
     A_O = C_T_Article.query.filter(C_T_Article.id==articleid).first()
