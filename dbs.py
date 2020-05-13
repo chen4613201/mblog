@@ -19,7 +19,9 @@ class C_T_User(db.Model):
 class C_T_Article(db.Model):
     __tablename="m_article"
     id = db.Column(db.Integer,primary_key=True)
-    artircle_title=db.Column(db.String(128))
+    article_title=db.Column(db.String(128))
+    article_attr = db.Column(db.String(64))
+    cover_photo = db.Column(db.String(64))
     article_content=db.Column(db.Text)
     user_id = db.Column(db.Integer)
     create_time = db.Column(db.TIMESTAMP,default=time.localtime(time.time()))
