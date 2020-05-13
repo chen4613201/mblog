@@ -24,3 +24,47 @@
       <span class="glyphicon glyphicon-eye-open">点赞{{ 0 }}</span>
     </a>
 {% endmacro %}
+
+{% macro list_group_link(param=None) %}
+<div class="list-group">
+    <span href="#" class="list-group-item article_title">{{ param.title }}</span>
+    {% for item in param.contents %}
+        <div class="list-group-item list-group-item-light">
+            <a href="{{ url_for("Article_BP.read_article",articleid=item.id) }}">
+                {{ item.artircle_title |safe}}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro list_group_simple_attr(param=None) %}
+<div class="list-group">
+    {% for item in param.contents %}
+    <div class="list-group-item border-0">
+        <h4 class="list-group-item-heading">
+            <a class="article_title" href="{{ url_for("Article_BP.read_article",articleid=item.id) }}" style="font-weight: bold;">
+            {{ item.artircle_title|safe }}
+            </a>
+        </h4>
+        <p class="p_content" class="list-group-item-text border-0 text-break">
+            {{ item.article_content| safe }}
+        </p>
+    </div>
+    <div class="list-group-item border-0 ">
+        <div class="border-bottom text-right">
+         <span>阅读数:{{ item.read_num }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro filing_information(param=None) %}
+    <div class="col-md-12 mt-3" style="background-color: #ffffff">
+        <div class="list-group">
+            <span>备案信息</span>
+        </div>
+    </div>
+{% endmacro %}
+

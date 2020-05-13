@@ -53,66 +53,15 @@
 </div>
 <div class="row clearfix" style="background: unset">
 <div id="left_content" class="col-md-8 column">
-    <div class="list-group">
-        {% for item in contents %}
-        <div class="list-group-item border-0">
-            <h4 class="list-group-item-heading">
-                <a class="article_title" href="{{ url_for("Article_BP.read_article",articleid=item.id) }}" id="article_title" style="font-weight: bold;">
-                {{ item.artircle_title|safe }}
-                </a>
-            </h4>
-            <p class="p_content" class="list-group-item-text border-0 text-break">
-                {{ item.article_content| safe }}
-            </p>
-        </div>
-        <div class="list-group-item border-0 ">
-            <div class="border-bottom text-right">
-            {#{ macrofunc.Thumbs_up(item) }#}
-             <span>阅读数:{{ item.read_num }}</span>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {{ macrofunc.list_group_simple_attr(param={'contents':contents}) }}
 </div>
 <div class="col-md-4 column">
-    <div class="list-group">
-         <span href="#" class="list-group-item article_title">热门文章</span>
-        {% for item in contents %}
-        <div class="list-group-item list-group-item-light">
-            <a href="{{ url_for("Article_BP.read_article",articleid=item.id) }}">
-                {{ item.artircle_title | safe}}
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="list-group pt-1">
-         <span class="list-group-item article_title">最新文章</span>
-        {% for item in contents %}
-        <div class="list-group-item list-group-item-light">
-            <a href="{{ url_for("Article_BP.read_article",articleid=item.id) }}">
-                {{ item.artircle_title |safe}}
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="list-group pt-1">
-         <span class="list-group-item article_title">友情链接</span>
-        {% for item in contents %}
-        <div class="list-group-item list-group-item-light">
-            {{ item.artircle_title }}
-        </div>
-        {% endfor %}
-    </div>
+    {{ macrofunc.list_group_link(param={'title':"热门文章",'url':"12314",'contents':contents}) }}
+    {{ macrofunc.list_group_link(param={'title':"最新文章",'url':"12314",'contents':contents}) }}
+    {{ macrofunc.list_group_link(param={'title':"友情链接",'url':"12314",'contents':contents}) }}
 </div>
 </div>
-
 {% endblock %}
-<div id="web_footer" class="row clearfix" style="background-color: #ffffff">
-    <div class="col-md-12 column">
-        <div class="list-group">
-            <span>备案信息</span>
-        </div>
-    </div>
-</div>
+    {{ macrofunc.filing_information() }}
 </div>
 {% endblock %}
