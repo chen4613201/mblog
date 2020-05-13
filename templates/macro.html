@@ -31,7 +31,7 @@
     {% for item in param.contents %}
         <div class="list-group-item list-group-item-light">
             <a href="{{ url_for("Article_BP.read_article",articleid=item.id) }}">
-                {{ item.artircle_title |safe}}
+                {{ item.article_title |safe}}
             </a>
         </div>
     {% endfor %}
@@ -44,7 +44,7 @@
     <div class="list-group-item border-0">
         <h4 class="list-group-item-heading">
             <a class="article_title" href="{{ url_for("Article_BP.read_article",articleid=item.id) }}" style="font-weight: bold;">
-            {{ item.artircle_title|safe }}
+            {{ item.article_title|safe }}
             </a>
         </h4>
         <p class="p_content" class="list-group-item-text border-0 text-break">
