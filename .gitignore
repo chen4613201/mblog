@@ -5,6 +5,7 @@
 # IntelliJ project files
 venv/*
 .idea
+migrations
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
